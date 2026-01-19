@@ -185,6 +185,12 @@ class Plugin {
 		require_once $path . 'src/class-ss-query.php';
 		require_once $path . 'src/models/class-ss-model.php';
 		require_once $path . 'src/models/class-ss-page.php';
+		require_once $path . 'src/models/class-ss-path-mapping.php';
+		require_once $path . 'src/security/class-ss-hide-wordpress.php';
+		require_once $path . 'src/security/class-ss-path-mapper.php';
+		require_once $path . 'src/security/class-ss-security-headers.php';
+		require_once $path . 'src/security/class-ss-metadata-cleaner.php';
+		require_once $path . 'src/security/class-ss-honeypot.php';
 		require_once $path . 'src/class-ss-diagnostic.php';
 		require_once $path . 'src/class-ss-sql-permissions.php';
 		require_once $path . 'src/class-ss-upgrade-handler.php';
