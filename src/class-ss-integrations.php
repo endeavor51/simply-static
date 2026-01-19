@@ -26,6 +26,7 @@ class Integrations {
 		return apply_filters( 'simply_static_integrations', [
 			'ss-uam'           => SS_UAM_Integration::class,
 			'ss-adminbar'       => SS_Adminbar_Integration::class,
+			'hide-wordpress-security' => Hide_WordPress_Security_Integration::class,
 			'yoast'             => Yoast_Integration::class,
 			'rank-math'         => Rank_Math_Integration::class,
 			'aio-seo'           => AIO_SEO_Integration::class,
@@ -54,6 +55,7 @@ class Integrations {
 		// Core Integrations.
 		require_once $path . 'class-ss-adminbar-integration.php';
 		require_once $path . 'class-ss-delay-integration.php';
+		require_once $path . 'class-ss-hide-wordpress-security-integration.php';
 
 		// Third-Party Integrations.
 		require_once $path . 'class-ss-yoast-integration.php';

@@ -175,6 +175,17 @@ class Upgrade_Handler {
 			'archive_start_time'            => null,
 			'archive_end_time'              => null,
 			'version'                       => SIMPLY_STATIC_VERSION,
+			// Security settings for Hide WordPress feature
+			'clean_paths'                   => true,
+			'strip_wp_classes'              => true,
+			'clean_metadata'                => true,
+			'remove_timestamps'             => true,
+			'security_headers'              => true,
+			'custom_404'                    => true,
+			'custom_robots'                 => true,
+			'honeypots'                     => false,
+			'cache_busting'                 => true,
+			'secure_permissions'            => true,
 		);
 
 		$version = self::$options->get( 'version' );
@@ -182,11 +193,13 @@ class Upgrade_Handler {
 		// New installation, set default options.
 		if ( null === $version ) {
 			Page::create_or_update_table();
+			Path_Mapping::create_or_update_table();
 			self::set_default_options();
 		} else {
 			if ( version_compare( $version, SIMPLY_STATIC_VERSION, '!=' ) ) {
 				// Sync database.
 				Page::create_or_update_table();
+				Path_Mapping::create_or_update_table();
 
 				// Clean up renamed crawlers in the crawlers option
 				self::cleanup_renamed_crawlers();
